@@ -1,0 +1,20 @@
+\chapter{RASim} 
+\label{cap:rasim}
+
+En este capítulo se procede a mostrar la implementación del algoritmo propuesto, en una herramienta con un objetivo de uso real. Uno de los objetivos del proyecto \ac{RASimAs} es crear un simulador médico (\ac{RASim}) para entrenar en el procedimiento \ac{RA} con la intención de permitir a los usuarios desarrollar sus habilidades tanto cognitivas y no cognitivas y ayuda a mejorar la confianza en el procedimiento. 
+
+El simulador médico \ac{RASim} da la posibilidad de entrenar el procedimiento utilizando material médico similares como las agujas y la sonda de ultrasonidos con el objetivo de entrenar y mejorar sus habilidades en el procedimiento. Además, este simulador dispone de una base de datos que permita al médico en formación experimentar multitud de variabilidades anatómicas generadas a partir de otros modelos o de imágenes médicas. Esto permite al usuario enfrentarse a diferentes tipos de situaciones y mejorar el entrenamiento del procedimiento.
+
+En ocasiones el procedimiento médico que se va a realizar necesita que los modelos virtuales disponibles se encuentren en una posición determinada diferente a la postura que presentan. Esto suele ser debido a que la posición requerida  no es habitual que sea la misma postura en la que se presentan los pacientes virtuales o modelos generados a partir de información de imágenes médicas.
+Para modificar esa postura, se necesitaría un algoritmo que sea capaz de transformar un modelo virtual con estructuras internas de una pose a otra. Debido que en la mayoría de las ocasiones, no se dispone de todos los tejidos o de sus propiedades mecánicas, este método deberá ser capaz de generar deformaciones plausibles útiles para el entrenamiento.
+
+El algoritmo propuesto en el capítulo anterior ha sido incorporado en la herramienta  offline \ac{TPTVPH} (ver sección \ref{intro:context}) que se encargará de generar la base de datos necesaria para que los usuarios puedan entrenar con una variabilidad anatómica extensa. Esta herramienta será la encargada de crear los pacientes virtuales que se utilizarán en el simulador \ac{RASim}. En este capítulo se mostrarán las contribuciones aportadas en la integración de esta herramienta dentro del proyecto \ac{RASimAs}.
+
+Adicionalmente, también se describirá todas las contribuciones que se han realizado con el objetivo de construir el prototipo del simulador \ac{RASim} y que pueda ser usado como herramienta de aprendizaje del procedimiento de \ac{RA}.
+
+
+
+
+
+
+

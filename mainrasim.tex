@@ -1,0 +1,31 @@
+\documentclass[12pt,a4paper,twoside,english]{book}
+
+\usepackage{Formato}
+
+\title{Tesis 5 Simulador anestesia }
+\author{Aaron Sújar}
+
+\begin{document}
+\frontmatter
+
+\include{Acronyms}
+
+
+\listoffigures
+ 
+\listoftables
+\mainmatter
+\input{introrasim}
+\input{herramienta}
+\input{rasim}
+\input{courseware}
+
+
+%\appendix
+%\include{appendix}
+\cleardoublepage
+% Como incorporar como un capitulo mas en el indice de la bibliografia
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliography{bibliography}
+\bibliographystyle{alpha}
+\end{document}
