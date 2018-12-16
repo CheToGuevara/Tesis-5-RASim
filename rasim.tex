@@ -1,14 +1,15 @@
 \section{RASim}
 \label{rasim:rasim}
-El simulador \ac{RASim} proporciona un entorno de trabajo para el entrenamiento de la \ac{RA}. En esta tesis se ha trabajado junto con los demás participantes de \ac{RASimAs} para realizar una mesa de trabajo que permite al usuario sentirse inmerso dentro de un entorno que sea lo más parecido a la situación real que se encontrarán en su futuro profesional.
+El simulador \ac{RASim} proporciona un entorno de trabajo para el entrenamiento de la \ac{RA}. Tanto el \ac{WP} 4 y 5 definen todas las tareas para el desarrollo de los prototipos \ac{RASim} y \ac{RAAs}. Las tareas del 1 al 4 del \ac{WP} 4 corresponden a los módulos por separado de \ac{RASim} y las tareas 1 y 2 del \ac{WP} 5 corresponden a su integración en el prototipo. En esta tesis se ha trabajado junto con los demás participantes de \ac{RASimAs} en la construcción del prototipo. El objetivo era realizar un entorno de trabajo que permite al usuario entrenar el procedimiento de la forma más parecida a la situación real que se encontrarán en su futuro profesional.
 
-El simulador consta de un maniquí que permitirá al usuario interaccionar físicamente acompañado de unos dispositivos que simulan una sonda de ultrasonidos y una aguja. Estos dispositivos están conectados a un computador que es el sistema principal, dónde a través de dos monitores se mostrará al usuario información visual y a través de un dispositivo háptico se proporcionará respuesta táctil. Además, se incorporará un \ac{Courseware}\footnote{Término ampliamente utilizado en la industria } que servirá para proporcionar una plataforma de aprendizaje y al mismo tiempo poder recopilar métricas y mostrar información útil al usuario. Esta aplicación será la encargada de cargar diferentes escenarios, guardar sesiones de entrenamiento, mostrar tareas y lecciones específicas de entrenamiento.
-El prototipo creado tendrá que ser evaluado como parte del proyecto europeo en estudios clínicos controlados dirigidos tanto a expertos como estudiantes de anestesiología. Antes de alcanzar los experimentos clínicos, cada módulo del simulador debe ser probado por separado (\ac{WP}4 sección \ref{art:rasimas}) para asegurar el proceso de evaluación y permitir un desarrollo iterativo con el objetivo de construir un prototipo validado y fiable (\ac{WP}5 sección \ref{art:rasimas}). Para cumplir con ello se han propuesto las siguientes especificaciones para el simulador:
+El simulador consta de un maniquí que permitirá al usuario interaccionar físicamente acompañado de unos dispositivos que simulan una sonda de ultrasonidos y una aguja. Estos dispositivos están conectados a un computador. El computador centraliza el software desarrollado y la interacción con el usuario. A través de dos monitores se mostrará al usuario información visual y a través de un dispositivo háptico se proporcionará respuesta táctil. Además, se incorporará un \ac{Courseware}\footnote{Término ampliamente utilizado en la industria } que servirá para proporcionar una plataforma de aprendizaje y autoevaluación. Al mismo tiempo, esta herramienta puede recopilar métricas y mostrar información útil al usuario. Esta aplicación será la encargada de cargar diferentes escenarios, guardar sesiones de entrenamiento, mostrar tareas y lecciones específicas del entrenamiento.
+
+El prototipo creado tendrá que ser evaluado como parte del proyecto europeo en estudios clínicos controlados dirigido tanto a expertos como estudiantes de anestesiología. Antes de alcanzar los experimentos clínicos, cada módulo del simulador debe ser probado por separado (\ac{WP}4 sección \ref{art:rasimas}) para asegurar el proceso de evaluación y permitir un desarrollo iterativo con el objetivo de construir un prototipo validado y fiable (\ac{WP}5 sección \ref{art:rasimas}). Para cumplir con ello se han propuesto las siguientes especificaciones para el simulador:
 
 \begin{itemize}
-    \item Computador: el sistema donde se ejecutará el sistema deberá ser lo suficiente potente como para ejecutar simulaciones físicas que permiten simular el comportamiento de los tejidos, retroalimentación háptica y representación visual.
-    \item Plataforma de trabajo: para estandarizar el entorno de trabajo se ha diseñado una plataforma que permite conocer la disposición tanto del maniquí como de los dispositivos hápticos con el objetivo de ser fácilmente reproducible en diferentes instituciones. Deberá estar diseñado para personas diestras y zurdas.
-    \item Maniquí y región de interés: con el objetivo de proporcionar el mayor realismo posible, se ha propuesto incluir un maniquí en la plataforma para que el usuario se sienta más inmerso y el entrenamiento sea más efectivo.
+    \item Computador: el sistema donde se ejecutará el sistema deberá ser lo suficiente potente como para ejecutar simulaciones físicas que permiten simular el comportamiento de los tejidos, calcular la retroalimentación háptica y generar la representación visual sin que afecte a la interactividad del usuario.
+    \item Plataforma de trabajo: para estandarizar el entorno de trabajo se ha diseñado una plataforma que permite conocer la disposición tanto del maniquí como de los dispositivos \ac{E/S} con el objetivo de ser fácilmente reproducible en diferentes instituciones. Deberá estar diseñado para personas diestras y zurdas.
+    \item Maniquí y región de interés: con el objetivo de proporcionar el mayor realismo posible, se ha propuesto incluir un maniquí en la plataforma para que el usuario interactúe sobre un espacio de trabajo controlado.
     \item Monitores: es necesario mostrar información visual sobre la habitación virtual y la imagen de \ac{US}. Además, se mostrará información útil para el aprendizaje.
     \item Sonda de ultrasonidos: es uno de los instrumentos principales de la \ac{RA}, por ello conviene que la sonda sea lo más realista posible.
     \item Aguja: instrumento fundamental en el procedimiento. Al ser una parte importante del entrenamiento, el simulador captura su movimiento y posición y devuelve fuerzas que simularan las sensaciones para el usuario como si fuera en un entorno real.
@@ -21,13 +22,15 @@ La responsabilidad del primer prototipo de \ac{RASim} recae en el equipo de trab
 \subsection{Caso de uso}
 \label{rasim:casodeusorasim}
 
-El simulador está orientado para entrenar el procedimiento de \ac{RA} de manera que proporcione una evaluación sumativa al supervisar el progreso del alumno. Por ello el usuario, normalmente estudiante de anestesiología, tiene designado un tiempo y objetivos mínimos que deberá cumplir. El usuario se sentará delante del entorno de trabajo y el primer paso será identificarse en el sistema para poder almacenar y seguir su evolución durante todo el proceso. En las primeras sesiones, el usuario podrá revisar contenido multimedia para familiarizarse con el simulador y el procedimiento que se requiera entrenar. El siguiente paso, será realizar una sesión guiada en la cual consiste en que el simulador va orientando al usuario en todos los pasos que debe realizar para completar con éxito el procedimiento médico. Cada sesión realizada, el simulador mostrará una retroalimentación sobre el desempeño del usuario en esa sesión, métricas recogidas por el simulador y una información asociada.
-Una vez completada la primera sesión guiada, el usuario podrá repetir la sesión guiada o realizar una sesión libre, en la que el simulador no proporcionará ninguna indicación y sólo se recogerán métricas de la sesión. Estos valores serán enviados a un servidor dónde el supervisor podrá consultar y revisar la evolución de los usuarios.
+El simulador está orientado para entrenar el procedimiento de \ac{RA}. Por ello el usuario, normalmente estudiante de anestesiología, se sentará delante del entorno de trabajo y se identificará en el sistema para poder almacenar y seguir su evolución durante todo el proceso. En las primeras sesiones, el usuario podrá revisar contenido multimedia para familiarizarse con el simulador y el procedimiento médico. El siguiente paso, será realizar una sesión guiada \del{en la cual} que  consiste en que el simulador va orientando al usuario en todos los pasos que debe realizar para completar con éxito el procedimiento médico. Durante el proceso, el usuario recibirá retroalimentación formativa por los errores o aciertos cometidos. Al finalizar la sesión, el simulador mostrará una retroalimentación sumativa sobre el desempeño del usuario y métricas recogidas por el simulador. Cada estudiante tiene designado un tiempo y objetivos mínimos que deberá cumplir antes de continuar con el entrenamiento. Una vez completada la primera sesión guiada, el usuario podrá repetir la sesión guiada o realizar una sesión libre, en la que el simulador no proporcionará ninguna indicación y sólo se recogerán métricas de la sesión. Todas las evaluaciones y métrica serán enviadas a un servidor dónde el supervisor podrá consultar y revisar la evolución de los usuarios.
 
 
 \subsection{Arquitectura del simulador}
 \label{rasim:arqrasim}
-Siguiendo la arquitectura de un simulador de \ac{RV} tipo que se puede observar en la figura \ref{fig:RVarq}  en el capítulo \ref{art:simulador}, un simulador puede ser definido por una serie de componentes. Los dispositivos de entrada y salida se comunican con un motor de \ac{RV} que calcula todas simulaciones físicas y visuales según la escena virtual o entorno de aprendizaje con el que haya sido programado. A continuación se procede a explicar cada componente por separado. 
+
+Antes de continuar, se va a presentar la arquitectura lógica del simulador para permitir al lector que tenga una visión completa del sistema en su conjunto.
+
+Siguiendo la arquitectura de un simulador de \ac{RV} tipo que se puede observar en la figura \ref{fig:RVarq}  en el capítulo \ref{art:simulador}, un simulador puede ser definido por una serie de componentes. El usuario utilizará los dispositivos de entrada y salida que se comunicarán con un motor de \ac{RV} que calcula todas simulaciones físicas y visuales según la escena virtual almacenada en la base de datos. El motor actualizará el estado de la simulación según las tareas que hayan sido programadas. A continuación se procede a explicar cada componente por separado. 
 
 \subsubsection{Motor de \ac{RV}}
 
@@ -40,8 +43,8 @@ Debido a que el proyecto \ac{RASimAs} participan multitud de instituciones, los 
 
 \emph{H3D}\cite{asdf} es una librería de código abierto (\ac{GPL})  orientada a la utilización de hápticos en entornos 3D desarrollado por la empresa \emph{Sensegraphics}. 
 
-\emph{H3D} sirve como punto de comunicación entre el software y los dispositivos.También es el encargado de recopilar la información de los dispositivos de entrada.
-En cuanto el simulador es iniciado, \emph{H3D} se encarga de cargar la escena seleccionada utilizando el formato \ac{X3D}, e inicia el módulo de simulación física, y activa los dispositivos, tanto el dispositivo háptico, como el dispositivo de seguimiento. La vista del paciente y la sala de operaciones es \emph{renderizada} por \emph{H3D} a través de su gestor de ventanas. Las simulaciones físicas y el cálculo de las deformaciones de los tejidos como consecuencia de la colisión de los instrumentos médicos serán calculadas en el siguiente componte del simulador.
+\emph{H3D} sirve como punto de comunicación entre el software y los dispositivos. También es el encargado de recopilar la información de los dispositivos de entrada.
+En cuanto el simulador es iniciado, \emph{H3D} se encarga de cargar la escena seleccionada utilizando el formato \ac{X3D}, inicia el módulo de simulación física y activa los dispositivos:  el dispositivo háptico y el \ac{tracker}. La vista del paciente y la sala de operaciones es \emph{renderizada} por \emph{H3D} a través de su gestor de ventanas. Las simulaciones físicas y el cálculo de las deformaciones de los tejidos como consecuencia de la colisión de los instrumentos médicos serán calculadas en el siguiente componte del simulador.
 
 \paragraph{Simulación física}\mbox{}\\
 
@@ -53,7 +56,7 @@ En \ac{RASim}, \emph{SOFA} realiza las siguientes tareas:
 \begin{itemize}
     \item Deformación de la piel y otros tejidos producida por la interacción de los instrumentos médicos utilizando el método \ac{FEM} co-rotacional.
     \item La interacción con la aguja a través de diferentes tipos de tejidos, simulando la penetración de la piel y las fascias, además de la fricción de los demás tejidos.
-   \item La contracción de los músculos con una respuesta física según sus propiedades mecánicas.
+   %\item La contracción de los músculos con una respuesta física según sus propiedades mecánicas.
     
 \end{itemize}
 
@@ -83,7 +86,7 @@ A continuación, se va a proceder a describir aquellos dispositivos que utilizan
 \paragraph{Sonda de ultrasonidos}\mbox{}\\
 
 El posicionamiento de la sonda de ultrasonidos es clave en el procedimiento de \ac{RA} debido a que es fundamental encontrar el nervio a anestesiar. Para simular este aparato médico se ha diseñado un modelo impreso en 3D que imita una sonda real que envuelve a un dispositivo de seguimiento. Para esta finalidad, se ha utilizado un \ac{tracker} magnético\footnote{ Ascension 3D-Guidance trakSTAR, módelo 800 \cite{Ascension}} como se puede observar en la figura \ref{fig:tracker}. 
-Este dispositivo es capaz de saber la posición de un receptor o sensor gracias a la generación de un campo magnético producido por un emisor. La deformación del campo magnético producido por el receptor ayuda al dispositivo a conocer su posición y orientación. Este sensor es el que se introduce dentro del modelo impreso y sirve para saber la posición de la sonda respecto a la mesa de trabajo. De esta manera el usuario puede apreciar de la misma forma que uno real.
+Este dispositivo es capaz de saber la posición de un receptor o sensor gracias a la generación de un campo magnético producido por un emisor. La deformación del campo magnético producido por el receptor ayuda al dispositivo a conocer su posición y orientación. Este sensor es el que se introduce dentro del modelo impreso y sirve para saber la posición de la sonda respecto a la mesa de trabajo. De esta manera el usuario utiliza un instrumento parecido lo más posible a uno real.
 
 \begin{figure}[h]
     \centering
@@ -101,12 +104,12 @@ En un principio, el diseño del modelo 3D intenta recrear la sonda original a la
     \label{fig:m3d}
 \end{figure}
 
-Debido a limitaciones de hardware de poder recrear fielmente la deformación de los tejidos de la piel cuando el médico presiona la sonda contra ella, se decidió junto con los profesionales médicos del proyecto que habría que incorporar algún mecanismo que ofreciera al usuario el realismo de la elasticidad de la piel. Así de esta manera, se ideó una pieza adicional conectada al modelo 3D a través de un muelle que permitía la sensación de tejido flexible al usuario como se puede observar en la figura \ref{fig:m3dv2}.
+Debido a limitaciones de hardware de poder recrear fielmente la deformación de los tejidos de la piel cuando el médico presiona la sonda contra ella, se decidió junto con los profesionales médicos del proyecto que habría que incorporar algún mecanismo que ofreciera al usuario una sensación de elasticidad de la piel. Así de esta manera, se ideó una pieza adicional conectada al modelo 3D a través de un muelle que permitía la sensación de tejido flexible al usuario como se puede observar en la figura \ref{fig:m3dv2}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{IMG/modelo3dv2.jpg}
-    \caption{Modelo impreso de la sonda de ultrasonidos con la actualización que permite sentir la elasticidad de la piel }
+    \caption{Modelo impreso de la sonda de ultrasonidos con la actualización que permite tener sensación de elasticidad de la piel }
     \label{fig:m3dv2}
 \end{figure}
 
@@ -122,7 +125,7 @@ El usuario maneja este dispositivo a través de una especie de bolígrafo (\emph
 
 Aun así, la utilización de este dispositivo para simular una aguja no esta exento de problemas. El objetivo es simular una aguja real pero el actuador del dispositivo es completamente diferente y sería muy difícil replicar el mismo comportamiento que se experimenta en una situación real.
 Con el objetivo de solventar este problema, se ha intentado adaptar el bolígrafo que dispone para que aloje una aguja real utilizado en el procedimiento.
-El dispositivo \emph{Touch} permite desmontar la punta del actuador con la intención de permitir a otros desarrolladores encajar nuevas creaciones a través de un conector tipo \emph{Jack}. En este caso, desde \ac{SG} se diseñó un modelo 3d que encaje en el conector de manera que la aguja pueda ser agarrada por el usuario. Esto permite que se puedan utilizar el mismo tipo de aguja estandarizando la solución como se puede ver en la figura \ref{fig:needle}.
+El dispositivo \emph{Touch} permite desmontar la punta del actuador con la intención de permitir a otros desarrolladores encajar nuevas creaciones a través de un conector tipo \emph{Jack}. En este caso, desde \ac{SG} se diseñó un modelo 3D que encaje en el conector de manera que la aguja pueda ser agarrada por el usuario. Esto permite que se puedan utilizar el mismo tipo de aguja estandarizando la solución como se puede ver en la figura \ref{fig:needle}.
 
 \begin{figure}[h]
     \centering
@@ -157,7 +160,7 @@ Otro problema derivado de la selección del dispositivo era que el espacio de tr
 
 El principal objetivo de crear una mesa de trabajo del simulador es estandarizar la posición relativa de los dispositivos anteriormente citados. Además de suplir las carencias de estos para mejorar la inmersión del usuario en el simulador.
 
-Se ha diseñado una plataforma en forma de \emph{"T"}  para poder incorporar de manera perpendicular el campo de trabajo del dispositivo magnético por una parte y el dispositivo háptico por otra. Situando en el centro se colocará un maniquí de un material deformable para simular una zona anatómica del paciente. De esta manera, el dispositivo háptico puede ser intercambiado de posición para permitir que el simulador pueda ser configurado con el objetivo de que se pueda realizar con ambas manos. 
+Se ha diseñado una plataforma en forma de \emph{"T"}  para poder incorporar de manera perpendicular el campo de trabajo del dispositivo magnético por una parte y el dispositivo háptico por otra. Situado en el centro, se colocará un maniquí de un material deformable para simular la zona anatómica del paciente. De esta manera, el dispositivo háptico puede ser intercambiado de posición para permitir que el simulador pueda ser configurado para que se pueda realizar con ambas manos. 
 Los monitores estarán colocados de manera frontal para que el usuario tenga todos los elementos en el rango de visión y evitar la rotación de cuello. Una versión del prototipo se puede ver en la figura \ref{fig:simulator}.
 
 
