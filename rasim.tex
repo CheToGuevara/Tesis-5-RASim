@@ -1,6 +1,7 @@
 \section{RASim}
 \label{rasim:rasim}
-El simulador \ac{RASim} proporciona el entorno de trabajo para el entrenamiento de la \ac{RA}. Los \ac{WP} 4 y 5 definen todas las tareas para el desarrollo de los prototipos \ac{RASim} y \ac{RAAs}. Las tareas del 1 al 4 del \ac{WP} 4 corresponden a los módulos por separado de \ac{RASim} y las tareas 1 y 2 del \ac{WP} 5 corresponden a su integración en el prototipo. 
+El simulador \ac{RASim} proporciona el entorno de trabajo para el entrenamiento de la \ac{RA}.  
+Los \ac{WP} 4 y 5 definen todas las tareas para el desarrollo de los prototipos \ac{RASim} y \ac{RAAs}. Las tareas del 1 al 4 del \ac{WP} 4 corresponden a los módulos por separado de \ac{RASim} y las tareas 1 y 2 del \ac{WP} 5 corresponden a su integración en el prototipo. 
 La responsabilidad del primer prototipo de \ac{RASim} recae en el equipo de trabajo de \ac{SG}, siendo cada módulo desarrollado por diferentes integrantes del proyecto. Aun así, la comunicación entre los diferentes grupos ha sido fundamental para conseguir una buena cohesión de todos los elementos del simulador. En esta tesis, se ha contribuido al simulador con el módulo de \ac{Courseware}. Este módulo se encarga del entrenamiento y gestiona los componentes del simulador. Por tanto, se trabajó conjuntamente con los demás participantes de \ac{RASimAs} en la construcción del prototipo \ac{RASim}.
 
 
@@ -75,7 +76,7 @@ Por otra parte, en el segundo monitor se muestra el software de entrenamiento en
 
 
 \subsubsection{Maniquí} 
-En el procedimiento de \ac{RA}, el radiólogo apoya la sonda de ultrasonidos y parte del brazo en la anatomía del paciente. Por tanto, era necesario simular cierta zona que ayudará al usuario a apoyar la sonda de ultrasonidos e introducir la aguja en algún lugar de manera segura y controlada. Esto requería que el material fuera resistente tanto a presión como a la inserción de la aguja repetidamente sin introducir fuerzas adicionales al sistema. Se diseño un rectángulo de espuma de poliuretano que sirviera de recipiente para un relleno con espuma floral como se puede observar en la figura \ref{fig:simulator}.
+En el procedimiento de \ac{RA}, el radiólogo apoya la sonda de ultrasonidos y parte del brazo en la anatomía del paciente. Por tanto, era necesario simular cierta zona que ayudará al usuario a apoyar la sonda de ultrasonidos e introducir la aguja en algún lugar de manera segura y controlada. Esto requería que el material fuera resistente tanto a presión como a la inserción de la aguja repetidamente sin introducir fuerzas adicionales al sistema. Se diseñó un rectángulo de espuma de poliuretano que sirviera de recipiente para un relleno con espuma floral como se puede observar en la figura \ref{fig:simulator}.
 
 % La idea original era obtener un reemplazo rápido porque la espuma floral, aunque permitía una inserción de la aguja sin apenas resistencia, era muy débil ante presión y rotaciones de la aguja. Además, las inserciones continuas debilitaban el material y pueden dar información a los usuarios que utilicen el simulador posteriormente.
 % Para añadir consistencia a la espuma floral se ideó añadir una capa de silicona por encima. Esta capa permitía que la espuma no se deshiciera con el rozamiento y además proporcionaba cierta estabilidad, pero a la vez introducía un pequeño rozamiento que habría que salvar al introducir una aguja. En la figura \ref{fig:silicona} se puede observar un prototipo.
@@ -200,7 +201,7 @@ Desde el proyecto \ac{RASimAs} se ha seleccionado el dispositivo \emph{Touch} de
 %Uno de los componentes principales de un simulador de \ac{RV} es el motor donde se producen todos los cálculos que permiten simular la escena virtual. 
 %En el contexto de \ac{RASim}, es lógico que este simulador tenga un núcleo que realiza las simulaciones físicas y cálculos necesarios con el objetivo de comunicarse con los dispositivos de entrada y salida. Además, también es necesario un núcleo de simulación que proporcione las imágenes de \ac{US} para conseguir mostrar una simulación realista que pueda ayudar al usuario. Por último, el sistema también deberá \emph{renderizar} la escena con la información de los dispositivos para ayudar al usuario a que alcance mayor inmersión de la escena. 
 
-Debido a que el proyecto \ac{RASimAs} participan multitud de instituciones, los módulos encargados de cada tarea han sido desarrollado independientemente por cada participante y se presentarán en las siguientes secciones.
+Debido a que el proyecto \ac{RASimAs} participan multitud de instituciones, los módulos encargados de cada tarea han sido desarrollados independientemente por cada participante y se presentarán en las siguientes secciones.
 
 
 \subsubsection{Simulación visual}
@@ -232,7 +233,7 @@ En cuanto a la simulación de la imagen de ultrasonidos, se utiliza una librerí
 El módulo de ultrasonidos está desarrollado con un algoritmo basado en métodos acústicos geométricos \cite{Law2015}, el cual es clasificado como un enfoque \emph{generativo}. Pensando geométricamente, la onda de sonidos se puede aproximar a través de rayos que interaccionan con elementos de la escena, por consiguiente producen un reflejo del rayo refractado o dispersado. Estos rayos se definen por energía acústica, que puede ser absorbida o disipada durante la interacción con la escena. Esta energía es usada para calcular la intensidad de los ecos y en consecuencia la intensidad de los \emph{píxeles} que servirán para construir la imagen resultante.
 
 Para alcanzar tiempos interactivos en presentar las imágenes de ultrasonidos, la mayor parte de los intensos cálculos y operaciones pesadas son realizadas durante un proceso previo. Específicamente, en esta etapa se generan un campo acústico que defina las propiedades del haz de la sonda y el transductor, las texturas tridimensionales que serán usadas para simular la dispersión del rayo y, además, las estructuras de datos auxiliares que ayudarán a acelerar el proceso de simulación.
-Así, de esta manera, cuando el objetivo es tener una respuesta interactiva, sólo es necesario la posición y orientación de la sonda virtual que se usará para calcular el origen y la dirección de los rayos acústicos. Estos rayos serán muestreados a través de la escena, estimando la energía reflejada y la distancia recorrida a través de los tejidos. Por otra parte, el remanente de energía transmitida, se tienen en cuenta absorciones y reflexiones es tenida en cuanta generar la imagen final.
+Así, de esta manera, cuando el objetivo es tener una respuesta interactiva, sólo es necesario la posición y orientación de la sonda virtual que se usará para calcular el origen y la dirección de los rayos acústicos. Estos rayos serán muestreados a través de la escena, estimando la energía reflejada y la distancia recorrida a través de los tejidos. Por otra parte, el remanente de energía transmitida, se tienen en cuenta absorciones y reflexiones es tenida en cuanta generar la imagen final \todo{muy confusa esta frase final}.
 
 
 
@@ -262,7 +263,7 @@ Con el objetivo de no necesitar estar conectado a internet permanentemente, se h
 %Tanto el motor de \ac{RV} como los dispositivos de entrada y salida no podrían ser capaces de servir como herramienta de aprendizaje por si mismos si no hubiera un software que guía las tareas y las acciones del usuario cuando utiliza el simulador.
 El módulo de \ac{Courseware} es una pieza fundamental en \ac{RASim} ya que gestiona la comunicación entre componentes, ayuda y recopila información de los usuarios. Se encarga de recopilar información de los dispositivos y se comunica con la base de datos que almacena las métricas de los usuarios. A la vez, será la aplicación encargada de manejar las ventanas y la interacción del usuario con el sistema. 
 
-El usuario podrá identificarse en el simulador a través de una interfaz. La aplicación recibirá el perfil desde el servidor y basándose en el perfil del usuario, el \ac{Courseware} proporcionara el escenario de entrenamiento según el protocolo que se haya definido. Incluso este módulo, es el encargado de descargar nuevos escenarios del simulador desde el servidor. 
+El usuario podrá identificarse en el simulador a través de una interfaz. La aplicación recibirá el perfil desde el servidor y basándose en el perfil del usuario, el \ac{Courseware} proporcionará el escenario de entrenamiento según el protocolo que se haya definido. Incluso este módulo, es el encargado de descargar nuevos escenarios del simulador desde el servidor. 
 
 Debido a la complejidad e importancia de este módulo, será descrito en una sección independiente a continuación.
 

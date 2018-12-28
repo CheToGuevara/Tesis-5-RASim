@@ -1,7 +1,7 @@
 \section{Courseware}
 \label{rasim:courseware}
 %\todo{Introducir esto como contribución}
-Todos los elementos anteriormente citados conforman un simulador de \ac{RV} por si mismo, pero no conforman una herramienta de entrenamiento sin un software que oriente al usuario en el proceso de aprendizaje. Por tanto, en el contexto de esta tesis, se ha contribuido en la creación del módulo \ac{Courseware}, que gestiona todos los componentes del simulador y se encarga de implementar todas las tareas de relacionadas con el entrenamiento. El software se ha diseñado con la finalidad de ser la interfaz del simulador para ayudar al usuario a interaccionar con él. A su vez, este módulo proporciona una evaluación formativa y sumativa al usuario, para mejorar el aprendizaje.
+Todos los elementos anteriormente citados conforman un simulador de \ac{RV} por si mismo, pero no conforman una herramienta de entrenamiento sin un software que oriente al usuario en el proceso de aprendizaje. Por tanto, en el contexto de esta tesis, se ha contribuido en la creación del módulo \ac{Courseware}, que gestiona todos los componentes del simulador y se encarga de implementar todas las tareas \del{de} relacionadas con el entrenamiento. El software se ha diseñado con la finalidad de ser la interfaz del simulador para ayudar al usuario a interaccionar con él. A su vez, este módulo proporciona una evaluación formativa y sumativa al usuario\del{,} para mejorar el aprendizaje.
 
 %De esta forma, el \ac{Courseware} es el encargado de permitir al usuario identificarse y comunicarse con el servidor. En el servidor se almacenan los materiales multimedia y los escenarios que se cargarán en el simulador. La aplicación también es la encargada de inicializar el motor de \ac{RV} con los módulos de simulación. También es el encargado de presentar la interfaz gráfica que se mostrará a través de los monitores. Por una parte, mostrará la vista de paciente, y por otra la vista del \ac{Courseware}. Esta ventana contendrá a su vez la información del simulador de ultrasonidos y todos los botones y la información adicional asociada al modo de simulación que se esté ejecutando.
 
@@ -16,7 +16,7 @@ El simulador estará emplazado en un centro de entrenamiento de profesionales de
 
 El objetivo principal de la aplicación es la práctica de \ac{RA} en simulador orientado a dos perfiles de profesionales sanitarios:
 \begin{itemize}
-    \item \textbf{Estudiantes noveles:} Como herramienta de aprendizaje, la aplicación está orientado a introducir el procedimiento a nuevos anestesistas. Por tanto, es necesario que el entrenamiento sea inicialmente guiado, ofreciendo información adicional a lo largo del procedimiento. Será necesario un modo guiado que ayude al estudiante en el procedimiento de \ac{RA} paso por paso y pueda ofrecer ayuda si el usuario la requiere. El objetivo es que el usuario pueda mejorar sus habilidades cognitivas como las no cognitivas. Además, el software recabará medidas de desempeño para que posteriormente puedan formar parte de una evaluación. Al final de la sesión, el sistema podrá mostrar los registros obtenidos sirviendo como evaluación formativa.
+    \item \textbf{Estudiantes noveles:} Como herramienta de aprendizaje, la aplicación está orientada a introducir el procedimiento a nuevos anestesistas. Por tanto, es necesario que el entrenamiento sea inicialmente guiado, ofreciendo información adicional a lo largo del procedimiento. Será necesario un modo guiado que ayude al estudiante en el procedimiento de \ac{RA} paso por paso y pueda ofrecer ayuda si el usuario la requiere. El objetivo es que el usuario pueda mejorar sus habilidades cognitivas como las no cognitivas. Además, el software recabará medidas de desempeño para que posteriormente puedan formar parte de una evaluación. Al final de la sesión, el sistema podrá mostrar los registros obtenidos sirviendo como evaluación formativa.
 
 \item \textbf{Profesionales con conocimientos previos:} El simulador puede ayudar a sanitarios que quieran practicar o mejorar sus habilidades no-cognitivas. Como estos usuarios pueden tener conocimientos previos de \ac{RA}, se les permitirá saltarse el modo guiado ofreciéndole un modo sin restricciones. En este modo el usuario podrá actuar de manera libre mientras que el sistema registrará su rendimiento. Este podrá ser mostrado al final de la sesión que al igual que el modo guiado se podrá usar como evaluación formativa para el usuario.
 
@@ -43,7 +43,7 @@ A continuación, se detallarán los requisitos que vienen dados por el proyecto 
 \item  La aplicación fomentará el aprendizaje independiente, sin necesidad de un supervisor durante el uso del simulador. El objetivo es mejorar el proceso de aprendizaje proporcionando ayuda antes, durante y después de la utilización del simulador. 
 
 \item El usuario tendrá en todo momento disponible material multimedia que ayude a comenzar las sesiones de entrenamiento. Este material contendrá información útil tanto de aspectos específicos de \ac{RA} como de elementos del simulador.
-\item Durante la sesión, la aplicación ofrecerá ayuda al usuario si lo requiere. Descripción detallada de la tarea, ayuda para conseguir determinados objetivos, advertencias y errores.
+\item Durante la sesión, la aplicación ofrecerá ayuda al usuario si lo requiere.\todo{queda poco preciso} Descripción detallada de la tarea, ayuda para conseguir determinados objetivos, advertencias y errores.
 \item Después de la sesión, el sistema podrá facilitar una retroalimentación al usuario.
 \item Esta aplicación contará con funcionalidades adicionales con la finalidad de ayudar en la realización de la evaluación clínica del sistema.
 \end{enumerate}
@@ -93,10 +93,10 @@ Estos componentes del \ac{Courseware} se comunican con ciertos módulos externos
 Uno de los objetivos del \ac{Courseware} es el entrenamiento del procedimiento de \ac{RA} adaptándose al perfil del usuario. La aplicación proporciona dos modos de sesiones para adaptar la simulación a las necesidades del usuario. Los modos de simulación se definirán a continuación:
 
 \begin{itemize}
-    \item El modo guiado está diseñado para usuarios con poco conocimiento del procedimiento. Además, también puede servir para anestesistas que no haya practicar el procedimiento por un tiempo y necesita familiarizarse con el simulador antes de utilizar el modo libre. %Parece evidente que usuarios con experiencia en \ac{RA} necesiten algunas sesiones guiadas para sentirse cómodos en la utilización del simulador. 
+    \item El modo guiado está diseñado para usuarios con poco conocimiento del procedimiento. Además, también puede servir para anestesistas que no haya\new{n} practica\del{r}\new{do} el procedimiento por un tiempo y necesita familiarizarse con el simulador antes de utilizar el modo libre. %Parece evidente que usuarios con experiencia en \ac{RA} necesiten algunas sesiones guiadas para sentirse cómodos en la utilización del simulador. 
 El modo guiado está diseñado para dirigir a los usuarios a través del procedimiento. El usuario será dirigido a través de pasos consecutivos hasta finalizar el procedimiento completo, estando limitado a realizar la tarea que se le indica. El modo guiado mostrará continuamente retroalimentación durante la sesión con el objetivo de ayudar al usuario.%  y se almacenarán métricas de evaluación que serán actualizadas en el perfil del usuario y mostradas al final de la sesión.
 
-\item En el modo libre, el usuario puede realizar el procedimiento sin ninguna restricción y sin ninguna ayuda auxiliar por parte del \ac{Courseware}. Este modo esta orientado a que los usuarios puedan practicar sus habilidades no cognitivas en el procedimiento de \ac{RA}. 
+\item En el modo libre, el usuario puede realizar el procedimiento sin ninguna restricción y sin ninguna ayuda auxiliar por parte del \ac{Courseware}. Este modo está orientado a que los usuarios puedan practicar sus habilidades no cognitivas en el procedimiento de \ac{RA}. 
 
 La interfaz de usuario mostrada por la aplicación será más simple que el modo guiado, ya que no se guía al usuario a través del procedimiento. Por tanto, este modo no proporcionará ninguna información de apoyo y está orientada a recoger únicamente métricas del rendimiento del usuario en la sesión. Registrar estos parámetros presenta una dificultad extra, debido a que el usuario no está restringido como en el modo anterior. %Aún así, se recogerán las métricas de elementos críticos del procedimiento como la inserción de la aguja.
 
@@ -163,7 +163,7 @@ El modo guiado está orientado para guiar al usuario a lo largo del procedimient
 
 \begin{itemize}
     \item En la división A y B se ha diseñado una interfaz lo más parecido a la máquina de \ac{US}.% \emph{Philips Sparq}\cite{Philips} (ver figura \ref{fig:philips}).
-    En la división A se puede ver la imagen de \ac{US} con los parámetros actuales. En la división B se pueden ver el panel de control para configurar el \ac{US} y unas funcionalidades adicionales que se detallarán a continuación:
+     En la división A se puede ver la imagen de \ac{US} con los parámetros actuales. En la división B se pueden ver el panel de control para configurar el \ac{US} y unas funcionalidades adicionales que se detallarán a continuación:
     \begin{enumerate}
         
         \item Botón \emph{On/Off}: apaga y enciende el simulador de \ac{US}.
@@ -171,7 +171,7 @@ El modo guiado está orientado para guiar al usuario a lo largo del procedimient
  \item Botón \emph{Color}: activa la tecnología de color \emph{Doppler} que se describirá en la sección \ref{doppler}.
 \item Controles deslizantes: Permiten configurar la profundidad, el contraste y la ganancia del simulador de \ac{US}.
         \item Botón \emph{Help}: permite al usuario solicitar ayuda.
-        \item Botones \emph{Continue y Back}: estos botones para permiten avanzar y retroceder en el procedimiento. 
+        \item Botones \emph{Continue y Back}: estos botones \del{para} permiten avanzar y retroceder en el procedimiento. 
     \end{enumerate}
     \item La lista de tareas del bloque activo del procedimiento de \ac{RA} se muestra en C.
     \item El panel D sirve para mostrar texto informativo sobre la tarea actual, mensajes de error o ayuda textual que requiera el usuario.
@@ -205,12 +205,12 @@ En este modo, el sistema no debe presentar ninguna información de apoyo al usua
 \subsection{Ayudas al usuario}
 \label{course:ayudas}
 
-Según se ha citado en la sección \ref{art:learning}, \emph{David Olson} \cite{olson2014jerome} sugiere crear unos andamios que faciliten el aprendizaje, ofreciendo ayuda al usuario para que sean independientes en el futuro. En el \ac{Courseware}, el usuario puede solicitar ayuda mientras realiza la sesión guiada del procedimiento. Esta ayuda depende en gran medida de la tarea concreta que se este realizando en ese momento. Cada tarea tiene asociado una ayuda concreta debido a que las tareas del procedimiento pueden ser muy diferentes entre sí. Si la ayuda que requiere el usuario es conceptual, el sistema mostrará un vídeo que contenga una explicación de la tarea a realizar, o puede ser simplemente muestre un mensaje en el panel de información. Otro ejemplo es la consecución de una posición correcta de los instrumentos médicos. En este caso, el simulador añade información visual que se superpondrá en la vista de paciente, o pueden ser ayudas específicas que se mostrarán en la interfaz del \ac{Courseware}. Por último, en cuanto a la interpretación de la imagen de \ac{US}, el usuario puede solicitar ayuda y el sistema mostrará información superpuesta en la imagen. A continuación se detallan de forma pormenorizada.
+Según se ha citado en la sección \ref{art:learning}, \emph{David Olson} \cite{olson2014jerome} sugiere crear unos andamios que faciliten el aprendizaje, ofreciendo ayuda al usuario para que sean independientes en el futuro. En el \ac{Courseware}, el usuario puede solicitar ayuda mientras realiza la sesión guiada del procedimiento. Esta ayuda depende en gran medida de la tarea concreta que se esté realizando en ese momento. Cada tarea tiene asociado una ayuda concreta debido a que las tareas del procedimiento pueden ser muy diferentes entre sí. Si la ayuda que requiere el usuario es conceptual, el sistema mostrará un vídeo que contenga una explicación de la tarea a realizar, o puede ser simplemente \new{que} muestre un mensaje en el panel de información. Otro ejemplo es la consecución de una posición correcta de los instrumentos médicos. En este caso, el simulador añade información visual que se superpondrá en la vista de paciente, o pueden ser ayudas específicas que se mostrarán en la interfaz del \ac{Courseware}. Por último, en cuanto a la interpretación de la imagen de \ac{US}, el usuario puede solicitar ayuda y el sistema mostrará información superpuesta en la imagen. A continuación se detallan de forma pormenorizada.
 
 
 \subsubsection{Vídeos y ayudas textuales}
 
-Si el usuario no ha entendido o no se acuerda de la realización de una tarea específica, la aplicación puede mostrar un texto de ayuda o un vídeo si el concepto es más complejo. Los textos de ayuda serán mostrados en la división D de la interfaz del sistema (fig. \ref{fig:guidedui}). En el caso de los vídeos, la aplicación abrirá una nueva ventana donde el usuario podrá ver la reproducción de un vídeo, pedir su repetición o cerrarla (fig. \ref{fig:video}).
+Si el usuario no ha entendido o no \del{se acuerda de} \new{recuerda} la realización de una tarea específica, la aplicación puede mostrar un texto de ayuda o un vídeo si el concepto es más complejo. Los textos de ayuda serán mostrados en la división D de la interfaz del sistema (fig. \ref{fig:guidedui}). En el caso de los vídeos, la aplicación abrirá una nueva ventana donde el usuario podrá ver la reproducción de un vídeo, pedir su repetición o cerrarla (fig. \ref{fig:video}).
 
 % \begin{figure}[h]
 %     \centering
@@ -305,7 +305,7 @@ En la figura \ref{fig:doppler} se muestra la implementación de la funcionalidad
  
 \subsubsection{Reconocimiento de voz}
 
-El procedimiento de \ac{RA} no es un procedimiento que se realice exclusivamente por un anestesista. Lo habitual es que haya un asistente que  realice tareas secundarias dirigidas por la persona que está realizando el procedimiento. Esto es debido a que, en la mayor parte del tiempo del procedimiento, el médico tiene las manos ocupadas por la sonda de ultrasonidos y la aguja. Ciertas tareas, como administrar el anestésico, es realizado por el auxiliar mientras el anestesista supervisa el procedimiento. Aunque el simulador está orientado a que sea utilizado por una única persona y que las tareas no son complejas, se ha desarrollado un reconocimiento de voz para ejecutar ciertas tareas que permitirán al usuario realizar el procedimiento sin tener que soltar los instrumentos en ningún momento. A continuación se definen los comandos diseñados para esta funcionalidad:
+El procedimiento de \ac{RA} no es un procedimiento que se realice exclusivamente por un anestesista. Lo habitual es que haya un asistente que  realice tareas secundarias dirigidas por la persona que está realizando el procedimiento. Esto es debido a que, en la mayor parte del tiempo del procedimiento, el médico tiene las manos ocupadas por la sonda de ultrasonidos y la aguja. Ciertas tareas, como administrar el anestésico, es realizado por el auxiliar mientras el anestesista supervisa el procedimiento. Aunque el simulador está orientado a que sea utilizado por una única persona y que las tareas no son complejas, se ha desarrollado un reconocimiento de voz para ejecutar ciertas tareas que permitirán al usuario realizar el procedimiento sin tener que soltar los instrumentos en ningún momento. A continuación, se definen los comandos diseñados para esta funcionalidad:
 
 \begin{enumerate}
     \item \emph{Aspirate}: Antes de suministrar el anestésico, el médico debe comprobar si no se encuentra la punta de la aguja en un vaso sanguíneo. Para ello, retrae la inyección para comprobar que no haya sangre.
@@ -369,7 +369,7 @@ En el documento \cite{ded4.4}, se describen de forma pormenorizados.
 Durante las sesiones guiadas, el usuario sigue las instrucciones del simulador mientras le proporciona ayuda o mensajes de error según las métricas registradas, permitiendo al usuario mejorar su habilidad en el momento. Esto es conocido como retroalimentación formativa. En la figura \ref{fig:errorrun}, se puede observar un mensaje de error en la ventana \ac{Courseware}.
 
 
-En el caso del simulador \ac{RASim} al finalizar el entrenamiento, el \ac{Courseware} muestra una ventana con las métricas obtenidas por el usuario durante la sesión. Esta retroalimentación es conocidas como sumativas. En la figura \ref{fig:resultui}, se puede observar un ejemplo de la ventana de resultados, donde se puede observar que las métricas se agrupan en bloques del procedimiento de \ac{RA}. Estas métricas se mostrarán de color verde si están dentro de un rango aceptable y en rojo si se han cometido errores o el valor a sobrepasado un límite.
+En el caso del simulador \ac{RASim} al finalizar el entrenamiento, el \ac{Courseware} muestra una ventana con las métricas obtenidas por el usuario durante la sesión. Esta retroalimentación es conocida como sumativa. En la figura \ref{fig:resultui}, se puede observar un ejemplo de la ventana de resultados, donde se puede observar que las métricas se agrupan en bloques del procedimiento de \ac{RA}. Estas métricas se mostrarán de color verde si están dentro de un rango aceptable y en rojo si se han cometido errores o el valor ha sobrepasado un límite.
 
 %La evaluación formativa es un proceso en el que se realimenta el aprendizaje que posibilita su regulación directamente por el estudiante.\todo{revisar} 
 % De esta manera, junto con su supervisor, se puede inferir donde es necesario mejorar o incidir en determinadas actividades en relación con los resultados obtenidos. Con este objetivo, el simulador ofrece sesiones que hacen que el usuario pueda reforzar sus conocimientos y 
