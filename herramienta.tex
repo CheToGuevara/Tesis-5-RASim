@@ -35,19 +35,19 @@ Finalmente, se ha delegado la responsabilidad de generar posiciones correctas o 
 \end{figure}
 
 %Como se ha comentado anteriormente, el usuario puede realizar la fase de posicionamiento de manera semiautomática, dónde es éste el que supervisa y realiza por sí mismo la deformación del modelo anatómico gracias a la interfaz de usuario de la herramienta \ac{TPTVPH} que proporciona una visualización 3D del modelo.
-En la figura \ref{fig:posui} se muestra la interfaz d\del{ó}nde el usuario puede manejar las articulaciones que disponga el paciente virtual para conseguir la posición deseada. Se divide en las siguientes partes: 
+En la figura \ref{fig:posui} se muestra la interfaz donde el usuario puede manejar las articulaciones que disponga el paciente virtual para conseguir la posición deseada. Se divide en las siguientes partes: 
 \begin{enumerate}
     \item La primera división se permite al usuario seleccionar y manipular las articulaciones por separado. %que servirá para que la herramienta \emph{ITGVPH} actúe de manera automática.
     Además, se podrán cargar configuraciones realizadas previamente o guardar posiciones del modelo en un archivo auxiliar. El usuario es el encargado de que la combinación de uno o más movimientos de articulaciones sean válidas para el entrenamiento del procedimiento médico. 
     \item Esta división sirve para ocultar o mostrar las distintas estructuras anatómicas que se hayan cargado en la aplicación. Esto es especialmente útil si el usuario requiere comprobar cómo se deforma la anatomía interna sin que otros tejidos la oculten. %superiores la oculten.
     \item En la interfaz 3D se puede observar el paciente virtual cargado y, gracias al ratón, el usuario puede navegar en la escena para poder observar el modelo desde cualquier perspectiva. Además, en la barra superior se muestran unos botones que realizan funciones adicionales:
     \begin{enumerate}
-   \item Guarda\new{r} una instantánea de la escena que el usuario está viendo. 
-   \item Activa\new{r} la fase de optimización a demanda del usuario. 
-   \item Activa\new{r} la animación precargada que puede ser utilizada para seleccionar una pose. 
-   \item Permit\del{e}\new{ir} devolver la cámara de la escena a su posición original. 
-   \item Permit\del{e}\new{ir} utilizar la tecnología \emph{Microsoft Kinect} para posicionar el modelo anatómico.
-   \item   Permit\del{e}\new{ir} al usuario terminar con el posicionamiento y cerrar la aplicación.
+   \item Guardar una instantánea de la escena que el usuario está viendo. 
+   \item Activar la fase de optimización a demanda del usuario. 
+   \item Activar la animación precargada que puede ser utilizada para seleccionar una pose. 
+   \item Permitir devolver la cámara de la escena a su posición original. 
+   \item Permitir utilizar la tecnología \emph{Microsoft Kinect} para posicionar el modelo anatómico.
+   \item   Permitir al usuario terminar con el posicionamiento y cerrar la aplicación.
     \end{enumerate}
     
 \end{enumerate}
@@ -113,9 +113,9 @@ En la figura \ref{fig:toolarq} se muestra la arquitectura diseñada para la herr
     \label{fig:toolarq}
 \end{figure}
 
-Hay que destacar que no se integró la tarea 3.4 que se encargaba de la descripción fisiológica. Se decidió no incluir la simulación de la técnica de estimulación eléctrica del nervio en el simulador \ac{RASim}\todo{más preciso}.
+Hay que destacar que no se integró  la tarea 3.4 (enumerada en la sección \ref{art:rasimas}) que se encargaba de la generación de la descripción fisiológica al no ser necesaria. Por parte del comité médico, se decidió no incluir la simulación de la técnica de estimulación eléctrica del nervio en el simulador \ac{RASim} con el objetivo de solo fomentar la práctica de la \ac{RA} guiada por \ac{US}.
 
-El proceso comienza con el módulo de registro diseñado por \ac{UKA-IMI}. Se procede a cargar una imagen médica que contiene la anatomía objetivo, procedente de una base de datos que almacena diferentes\todo{no concuerda en número} \ac{DICOM}, además del modelo superficial anatómico de referencia en formato \ac{X3D}. Después, se realiza un registro automático entre la imagen médica y el modelo comercial, dando como resultado un nuevo modelo que será el primer paso para crear un \ac{VPH}. Para más información se puede consultar en \cite{deOliveira:2015}. Este resultado será la entrada de la siguiente etapa.
+El proceso comienza con el módulo de registro diseñado por \ac{UKA-IMI}. Se procede a cargar una imagen médica que contiene la anatomía objetivo, procedente de una base de datos que almacena diferentes imágenes médicas (el formato escogido es llamado \acs{DICOM}), además del modelo superficial anatómico de referencia en formato \ac{X3D}. Después, se realiza un registro automático entre la imagen médica y el modelo comercial, dando como resultado un nuevo modelo que será el primer paso para crear un \ac{VPH}. Para más información se puede consultar en \cite{deOliveira:2015}. Este resultado será la entrada de la siguiente etapa.
 
 La segunda etapa se utiliza el módulo de posicionamiento. Esta etapa se corresponde al objetivo principal de esta tesis ampliamente descrito en el capítulo \ref{cap:posing}. Este recibe el modelo \ac{VPH} que contiene el modelo superficial y la anatomía interna, permitiendo a los usuarios seleccionar y generar posiciones útiles para el entrenamiento.
 
@@ -179,7 +179,7 @@ Es importante remarcar que, aunque las tres etapas crean modelos volumétricos d
 
 %A continuación, se muestra la interfaz desarrollada para la herramienta \ac{ITGVPH}.
 La interfaz ha sido diseñada para tener la mínima complejidad, debido a que se pretende reducir la dificultad para usuarios sin perfil técnico. De esta manera, la interfaz de la herramienta se puede resumir en la figura \ref{fig:toolui}. En esta figura se puede observar que la primera ventana se pueden seleccionar todos los parámetros necesarios para que la herramienta trabaje de forma automática.
-En orden, el primer parámetro que se puede seleccionar es el conjunto de imágenes médicas que estén disponibles. Como se muestra en la figura, en este caso se dispone de imágenes en formato \ac{DICOM}.
+En orden, el primer parámetro que se puede seleccionar es el conjunto de imágenes médicas que estén disponibles. Como se muestra en la figura, en este caso se dispone de imágenes en formato \acs{DICOM}.
 Seguidamente, el segundo parámetro es el modelo anatómico de referencia que se pretende usar como puede ser \emph{ZygoteBody}$^{TM}$ o \emph{Anatomium}. En los primeros prototipos sólo se ha utilizado el modelo anatómico \emph{ZygoteBody}$^{TM}$ pero la herramienta está diseñada para permitir la entrada de cualquier modelo anatómico de referencia. Este modelo será usado para hacer un registro con las imágenes anteriormente seleccionadas. 
 Finalmente, se selecciona el archivo que contiene los parámetros biomecánicos y que se utilizarán en la última etapa.
 

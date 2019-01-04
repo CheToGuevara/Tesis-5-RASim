@@ -158,7 +158,7 @@ El posicionamiento de la sonda de ultrasonidos es clave en el procedimiento de \
 
 
 \subsubsection{Aguja}
-
+\label{rasim:aguja}
 En el procedimiento de \ac{RA} guiado por \ac{US}, el primer paso es la localización del nervio. Una vez localizado, la inserción de la aguja y su aproximación al nervio que se va a anestesiar es otro punto crucial del procedimiento. El médico debe introducir la aguja en una posición relativa a la sonda, por tanto, es necesario que el usuario practique con los dispositivos. Se mueve la sonda y cuando el usuario tiene el nervio localizado, se introduce la aguja de forma segura en el maniquí. El simulador debe interpretar la inserción de la aguja y devolver las fuerzas correspondientes a atravesar las fascias que se encuentran en la anatomía. 
 
 %El medico utiliza el taco para saber donde esta la aguja. Siempre que se traviesan las fascias el lo siente.
@@ -233,7 +233,7 @@ En cuanto a la simulación de la imagen de ultrasonidos, se utiliza una librerí
 El módulo de ultrasonidos está desarrollado con un algoritmo basado en métodos acústicos geométricos \cite{Law2015}, el cual es clasificado como un enfoque \emph{generativo}. Pensando geométricamente, la onda de sonidos se puede aproximar a través de rayos que interaccionan con elementos de la escena, por consiguiente producen un reflejo del rayo refractado o dispersado. Estos rayos se definen por energía acústica, que puede ser absorbida o disipada durante la interacción con la escena. Esta energía es usada para calcular la intensidad de los ecos y en consecuencia la intensidad de los \emph{píxeles} que servirán para construir la imagen resultante.
 
 Para alcanzar tiempos interactivos en presentar las imágenes de ultrasonidos, la mayor parte de los intensos cálculos y operaciones pesadas son realizadas durante un proceso previo. Específicamente, en esta etapa se generan un campo acústico que defina las propiedades del haz de la sonda y el transductor, las texturas tridimensionales que serán usadas para simular la dispersión del rayo y, además, las estructuras de datos auxiliares que ayudarán a acelerar el proceso de simulación.
-Así, de esta manera, cuando el objetivo es tener una respuesta interactiva, sólo es necesario la posición y orientación de la sonda virtual que se usará para calcular el origen y la dirección de los rayos acústicos. Estos rayos serán muestreados a través de la escena, estimando la energía reflejada y la distancia recorrida a través de los tejidos. Por otra parte, el remanente de energía transmitida, se tienen en cuenta absorciones y reflexiones es tenida en cuanta generar la imagen final \todo{muy confusa esta frase final}.
+Así, de esta manera, cuando el objetivo es tener una respuesta interactiva, sólo es necesario la posición y orientación de la sonda virtual que se usará para calcular el origen y la dirección de los rayos acústicos. Estos rayos serán muestreados a través de la escena, estimando la energía reflejada y la distancia recorrida a través de los tejidos. Por otra parte, el remanente de energía transmitida, las absorciones y reflexiones se tienen en cuenta para generar la imagen final.
 
 
 
